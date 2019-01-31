@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title>Meme-spiration</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="data.js"></script>
+    </head>
+
+        <body>
+            <div class="welcome bg-dark text-center pt-3">
+                    <h1>Meme-spiration </h1>
+                    <p>Never miss another task with the help of an inspirational meme!</p>
+
+                    <div class="buttons">
+                        <button onclick="showLoginForm()" id="log-in-button" class="btn btn-secondary mb-2">Log in</button>
+                        <button onclick="showSignUpForm()" id="sign-up-button" class="btn btn-secondary mb-2">Sign up</button>
+                    </div>
+            </div>
+
+            <div class="main-wrapper h-100 shadow-lg container-fluid  d-flex flex-column align-items-center text-center">
+            
+                <div id="auth-box" class="auth-box shadow-lg p-3 mt-3" style="display:none;">
+
+                        <div id="sign-up-form" class="col text-center" style="display:none;">
+
+                                    <label for="sign-up-username">Username</label>
+                                    <input required="true" type="text" class="form-control" id="sign-up-username" name="sign-up-username" placeholder="username"> 
+                            
+                                    <label for="sign-up-email">Email address</label>
+                                    <input required="true" type="email" class="form-control" id="sign-up-email" name="sign-up-email" placeholder="email@inbox.com">                      
+
+                                    <label for="sign-up-password">Password</label>
+                                    <input required="true" type="password" class="form-control" id="sign-up-password" name="sign-up-password" placeholder="Password">
+
+                                    <label for="sign-up-pic">Profile Picture</label>
+                                    <input type="file" class="form-control" id="sign-up-pic" name="sign-up-pic" placeholder="" accept="image/*">
+
+                                    <label for="sign-up-number">Phone-Number</label>
+                                    <input oninput="showSendCodeButton()" required="true" type="text" class="form-control" id="sign-up-number" name="sign-up-number" placeholder="111-222-3333">
+
+                                    <div class="mt-4 btn btn-secondary" id="send-code-button" onclick="showVerifyCodeFields()" style="display:none;">Send Code</div>
+
+                                    <div id="verification-fields" style="display:none;">
+                                    <label for="code-verifier" id="code-verifier">Enter Verification Code</label>
+                                    <input oninput="showVerifyCodeButton()" type="number" class="form-control" id="verification-code-input" placeholder="123456">
+                                    <div id="verify-code-button" class="mt-4 btn btn-secondary btn-block" onclick="verifyCode(document.getElementById('verification-code-input').value)" style="display:none;">Verify Code</div>
+                                    </div>   
+                                    
+                                    <div id="verified-block" class="mt-4" style="display:none;"><img src="img/verified.png" height="35px" width="35px" style="margin:0 auto"/></div>
+                                    <div  onclick="createNewAccount()" id="create-account-button" class=" mt-4 btn btn-secondary btn-block">Sign Up</div>
+                                    <button  onclick="cancel()" class=" mt-4 mb-4 btn btn-secondary btn-block">Cancel</button>
+                        </div>
+
+                        <div id="log-in-form" class="col text-center" style="display:none;">
+                            
+                                    <label for="login-email">Email</label>
+                                    <input type="email" class="form-control" id="login-email" name="login-email" placeholder="">                      
+                               
+
+                                    <label for="login-password">Password</label>
+                                    <input type="password" class="form-control" id="login-password" name="login-password" placeholder="">
+                                
+                                    <button  onclick="loginToExistingAccount()" class=" mt-4 btn btn-secondary btn-block">Log in</button>
+                                    <button  onclick="cancel()" class="btn btn-secondary btn-block">Cancel</button>
+                        </div>
+
+                    </div>
+                </div> 
+
+
+            <footer class="text-white bg-dark text-center d-flex flex-column align-bottom">
+                                <p class="m-0 mt-3"> Disclaimer and CopyRights | Privacy Policy</p>
+                                <p class="m-0">Meme-spiration does not own any rights to the images used</p>
+                                <p>Contact Us: <a href="mailto:rememinder@gmail.com"> rememinder@gmail.com</a></p>
+            </footer>  
+      
+        <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+        <script>
+        var config = {
+            apiKey: "AIzaSyBHtKtNrKQ2bLumqmsq052WFqBOcaMi8qc",
+            authDomain: "meme-spiration.firebaseapp.com",
+            databaseURL: "https://meme-spiration.firebaseio.com",
+            projectId: "meme-spiration",
+            storageBucket: "meme-spiration.appspot.com",
+            messagingSenderId: "966818827461"
+        };
+        firebase.initializeApp(config);
+        const storageService = firebase.storage();
+        const storageRef = storageService.ref();
+        </script>
+        <!-- //<script src="bundle.js"></script> -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

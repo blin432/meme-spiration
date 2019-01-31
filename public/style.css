@@ -1,0 +1,290 @@
+* {font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
+
+}
+
+html{
+      height: 100vh;
+}
+  
+body{
+    height:100%;
+    width:100%;
+}
+
+.main-wrapper{
+    opacity: .9;
+    background-image:url(img/phone.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.auth-box{
+    max-width:400px;
+    border-radius:10px;
+}
+
+.welcome {
+    padding:15px;
+    font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    color:white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+
+.buttons{
+    margin-top:30px;
+    width:100%;
+}
+
+.buttons button{
+    margin:5px;
+    width:84px;
+    border:1px solid black;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    
+}
+
+#sign-up-form label, #log-in-form label{
+margin:15px;
+font-size:24px;
+color:white;
+text-shadow:
+1px 1px #000,
+1px 1px #000,
+1px 1px #000,
+1px 1px #000;
+}
+
+#sign-up-form input, #log-in-form input{
+    background-color:#C0C0C0;
+    height:45px;
+}
+
+#sign-up-form input:active,
+#sign-up-form input:hover,
+#sign-up-form input:focus, 
+#log-in-form input:active,
+#log-in-form input:hover,
+#log-in-form input:focus {
+    background-color:white;
+}
+
+#sign-up-form button, #log-in-form button, 
+#verify-code-button,#create-account-button,
+#send-code-button{
+margin-bottom:15px;
+border:1px solid black;
+text-shadow:
+1px 1px #000,
+1px 1px #000,
+1px 1px #000,
+1px 1px #000;
+}
+
+
+footer{
+    height:90px;
+    font-size:12px;
+}
+
+.spacer10{
+    height:10px;
+    width:100%;
+}
+.spacer25{
+    height:25px;
+    width:100%;
+}
+
+.spacer50{
+    height:50px;
+    width:100%;
+}
+.dashboard-body{
+    color:white;
+}
+
+.greeting{
+    color:white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.logOut{
+    text-align:right;
+    margin-left:-30px;
+    margin-top:30px;
+    width:100%;
+}
+
+.logOut:hover{
+    cursor: pointer;
+}
+
+.dashboard-pic{
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.task-scheduler-box{
+    border:1px solid black;
+    border-radius:10px;
+    padding:20px;
+    margin:0 auto;
+    width:400px;
+    max-height: 400px;
+    background-color:#C0C0C0;
+
+}
+
+.task-scheduler-box label{
+    margin:10px;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.task-scheduler-box input{
+    border:1px solid black;
+}
+
+.task-scheduler-box select:hover{
+   cursor: pointer;
+}
+
+.task-scheduler-box input:hover,
+.task-scheduler-box input:focus,
+.task-scheduler-box input:active{
+    border:1px solid black;
+    cursor: pointer;
+    background-color:#808080;
+    color:white;
+}
+
+#schedule-task-button{
+    margin:20px;
+}
+.list-heading, .archive-list-heading{
+    margin:0 auto;
+    background-color:#D3D3D3;
+    border:1px solid black;
+    border-radius:4px;
+}
+.list-heading p, .archive-list-heading p{
+    width:20%;
+    margin:0 auto;
+    padding:10px;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.archive-list-heading{
+    margin-top:-100px;
+}
+
+.rendered-list{
+    margin:0 auto;
+    background-color:#D3D3D3;
+    border:1px solid black;
+    border-radius:4px;
+    margin-bottom:15px;
+
+}
+
+.rendered-archive {
+
+    margin:0 auto;
+    border-radius:4px;
+    margin-bottom:15px;
+
+}
+
+.rendered-list input, .rendered-list select{
+    width:20%;
+    text-align:center;
+    padding:10px;
+    overflow:auto;
+    margin-bottom:0px;
+    color:black;
+    outline:none;
+    border:none;
+    border-radius:4px;
+
+}
+
+.rendered-archive p {
+    width:33%;
+    text-align:center;
+    padding:10px;
+    overflow:auto;
+    margin-bottom:0px;
+    color:white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    outline:none;
+}
+
+
+.rendered-list input:hover, 
+.rendered-list input:focus, 
+.rendered-lis input:active,
+.rendered-list select:hover,
+.rendered-list select:focus,
+.rendered-list select:active {
+    background-color:#C0C0C0;
+    cursor: pointer;
+}
+
+#save-changes-button,
+#my-tasks-button,
+#view-task-archive-button,
+#archive-completed-button {
+    width:100%;
+    max-width:220px;
+    margin:0 auto;
+}
+
+#task-archive-header,
+#save-changes-button,
+#my-tasks-button,
+#archive-completed-button,
+#archive-wrapper {
+
+    display:none;
+
+}
+
+input::-webkit-inner-spin-button, 
+input::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+}
