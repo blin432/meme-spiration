@@ -5,11 +5,11 @@ dotenv.config({
     path: '.env'
 });
 
-var accountSid = process.env.ACCOUNT_SID;
-var authToken = process.env.AUTH_TOKEN;
-var twilioNum = process.env.TWILIO_NUM;
+var ACCOUNT_SID = process.env.ACCOUNT_SID;
+var AUTH_TOKEN = process.env.AUTH_TOKEN;
+var TWILIO_NUM = process.env.TWILIO_NUM;
 
-const client = require('twilio')(accountSid, authToken);
+const client = require('twilio')(ACCOUNT_SID, AUTH_TOKEN);
 
 
 function serverListening(){
@@ -26,7 +26,7 @@ function sendAlert(req,res){
     client.messages.create({
          body: "From your friends at Meme-spiration!",
          mediaUrl: img,
-         from: twilioNum,
+         from: TWILIO_NUM,
          to: phoneNumber
        }).then(() => console.log("Alert succesfully sent!")).done();
     }
@@ -40,7 +40,7 @@ function sendVerificationCode(req,res){
 
     client.messages.create({
          body: code,
-         from: twilioNum,
+         from: TWILIO_NUM,
          to: phoneNumber
        }).then(() => console.log("code sent")).done();
     }
