@@ -47,5 +47,8 @@ function sendVerificationCode(req,res){
 
 app.get('/sendCode/:pn',sendVerificationCode);
 app.get('/sendAlert/:pn/:img',sendAlert);
-app.listen(3000, serverListening());
+var PORT= process.env.PORT || 3000;
+app.listen(PORT,function(){
+    console.log('listening');
+});
 app.use(express.static('public'));
