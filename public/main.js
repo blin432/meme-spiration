@@ -510,7 +510,7 @@ function viewArchive(){
             var taskTime = convertFromMilitaryToStd(task.val().TaskTimeDue);
             var listOfArchivedTasks = "";
 
-            listOfArchivedTasks += `<div class="row rendered-archive">
+            listOfArchivedTasks += `<div class="row rendered-archive" style="background-color:grey">
                 <p>${taskName}</p>
                 <p>${taskDate}</p>
                 <p>${taskTime}</p>
@@ -796,19 +796,30 @@ function getCurrentTimeAndDate(){
 
                             snapshot.forEach(function(currentTask){
                                     
-                                    memeData.map(function(meme){
+                                    memeData.some(function(meme){
                                         var theTask = currentTask.val().Task;
                                         var memeTitle = meme.title;
                                         var memeImg = meme.image;
+                                        var noTitle = "https://sayingimages.com/wp-content/uploads/attack-the-day-inspirational-memes.jpg";
+                                        console.log(meme);
+                                        
 
                                         if(theTask.toLowerCase().includes(memeTitle.toLowerCase())){
                                             var endpoint = `/sendAlert/${userPhoneNumber}/${encodeURIComponent(memeImg)}`;
-                                            axios.get(endpoint).then(function(res){
+                                             return axios.get(endpoint).then(function(res){
+                                                
                                                 console.log(res)
                                             }).catch(function(err){
                                                 console.log(err);
                                             });
-                                        };
+                                        }else {
+                                            var endpoint = `/sendAlert/${userPhoneNumber}/${encodeURIComponent(noTitle)}`;
+                                             return axios.get(endpoint).then(function(res){
+                                                console.log(res)
+                                            }).catch(function(err){
+                                                console.log(err);
+                                            });
+                                        }
                                     }); 
                                 });
                             };

@@ -9,7 +9,7 @@
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="data.js"></script>
     </head>
-    <body id="dashboard-page" onload="renderAccount()" class="dashboard-body bg-dark">
+    <body id="dashboard-page" onload="renderAccount()" class="dashboard-body bg-dark ">
     <p class="logOut" onclick="logOutUser()">Logout</p>
     <div class="spacer50"></div>
         <div class="container text-center">
@@ -23,7 +23,7 @@
                                 <input id="due-date" name="due-date" required="true" type="date" class="form-control" min="2018-12-01"/>
                                 <label for="time">Time Due</label>
                                 <input type="time" id="time" name="time" value="21:35" class="form-control">
-                                <label for="alert-frequency">Alert</label>
+                                <label for="alert-frequency">Alert:</label>
                                 <select required="true" name="alert-frequency" id="alert-frequency">
                                 <option>1 Day prior</option>
                                 <option>1 Hour prior</option>
