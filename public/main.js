@@ -107,6 +107,7 @@ function logOutUser(){
         }).then(function() {
         var userName = document.getElementById("sign-up-username").value;
         var number = document.getElementById("sign-up-number").value;
+        
         saveNumber(userName,number);
         }).catch(function(error) {
             alert(error);
@@ -115,9 +116,16 @@ function logOutUser(){
 }
 
 function savePic(un,pp){
-
-    storageRef.child(`images/${un}/${pp.name}`).put(pp); 
-
+    var metadata= {
+        contentType:`${pp}/jpeg`
+    };
+    console.log(pp);
+    var storageRef = firebase.storage().ref();
+     storageRef.child(`images/${un}/${pp.name}`).put(pp,metadata).catch(function(error){
+         console.log(error);
+     })
+    alert("hey");
+    console.log(pp);
 }
 
 function saveNumber(un,pn){
